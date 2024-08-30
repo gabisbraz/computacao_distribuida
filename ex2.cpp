@@ -8,7 +8,7 @@ void* depositos(void* arg) {
     for (int i = 0; i < 100; i++) {
         saldo += valor_depositado;
     }
-    pthread_exit(nullptr);
+    return nullptr;
 }
 
 void* saques(void* arg) {
@@ -16,7 +16,7 @@ void* saques(void* arg) {
     for (int i = 0; i < 100; i++) {
         saldo -= valor_sacado;
     }
-    pthread_exit(nullptr);
+    return nullptr;
 }
 
 int main() {
@@ -26,9 +26,6 @@ int main() {
 
     pthread_create(&thread1, nullptr, depositos, &valor_depositado);
     pthread_create(&thread2, nullptr, saques, &valor_sacado);
-
-    pthread_join(thread1, nullptr);
-    pthread_join(thread2, nullptr);
 
     printf("Saldo final: %.2lf\n", saldo);
 
