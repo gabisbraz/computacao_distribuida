@@ -9,10 +9,10 @@ void saques(double& saldo, double valor_sacado) {
     saldo -= valor_sacado;
 }
 
-int main2() {
+int main() {
     double saldo = 1000.00;
 
-    for (int i = 0; i < 2147483000; i++) {
+    for (int i = 0; i < 100; i++) {
         depositos(saldo, 5.0);  
         saques(saldo, 2.0);
     }
